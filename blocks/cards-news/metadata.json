@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-news",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-03-13T14:59:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.sjp.co.uk",
+    "originPage": "SJP homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "news-articles",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + category + read-time + title-link + date",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "news article listings",
+      "blog post previews",
+      "article cards with category and date metadata"
+    ],
+    "notSuitableFor": [
+      "service/feature cards with CTAs",
+      "cards without images",
+      "simple product cards"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-03-13T14:59:00.000Z"
+  }
+}

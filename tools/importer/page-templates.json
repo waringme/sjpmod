@@ -1,0 +1,90 @@
+{
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://www.sjp.co.uk"
+      ],
+      "description": "SJP homepage - main landing page for St. James's Place wealth management",
+      "blocks": [
+        {
+          "name": "hero-wealth",
+          "instances": [
+            ".component-type--banner-video.banner-home-page"
+          ]
+        },
+        {
+          "name": "cards-links",
+          "instances": [
+            ".banner-bottom-content .banner-config-text"
+          ]
+        },
+        {
+          "name": "cards-service",
+          "instances": [
+            ".organism.card.card--v1.signpost-x2-bespoke"
+          ]
+        },
+        {
+          "name": "cards-news",
+          "instances": [
+            ".news-data-wrapper .latest-news--wrapper"
+          ]
+        },
+        {
+          "name": "section-metadata",
+          "instances": [
+            ".fullwidth-signpost.signpost-full-width"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1-hero",
+          "name": "Hero Section",
+          "selector": ".layout-content-top",
+          "style": "dark",
+          "blocks": [
+            "hero-wealth",
+            "cards-links"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2-services",
+          "name": "Services Cards Section",
+          "selector": ".layout-content article",
+          "style": null,
+          "blocks": [
+            "cards-service"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3-news",
+          "name": "Latest News Section",
+          "selector": ".component-type--sjp-news",
+          "style": null,
+          "blocks": [
+            "cards-news"
+          ],
+          "defaultContent": [
+            ".news__display-header"
+          ]
+        },
+        {
+          "id": "section-4-cta",
+          "name": "CTA Banner Section",
+          "selector": ".fullwidth-signpost.signpost-full-width",
+          "style": "dark",
+          "blocks": [],
+          "defaultContent": [
+            ".fullwidth-signpost .text-size-h4",
+            ".fullwidth-signpost .text-size-medium",
+            ".fullwidth-signpost .button"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "https://www.sjp.co.uk",
+  "path": "index",
+  "timestamp": "2026-03-13T15:28:56.525Z",
+  "title": "St. James’s Place | Wealth Management & Financial Planning",
+  "template": "homepage",
+  "blocks": [
+    "hero-wealth",
+    "cards-links",
+    "cards-service",
+    "cards-service",
+    "cards-service",
+    "cards-service",
+    "cards-news",
+    "cards-news",
+    "cards-news"
+  ]
+}

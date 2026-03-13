@@ -1,0 +1,39 @@
+{
+  "variantName": "hero-wealth",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-03-13T14:59:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.sjp.co.uk",
+    "originPage": "SJP homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "wealth-hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "background-image + heading + description + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "wealth management landing pages",
+      "financial services homepages",
+      "dark-background hero sections with large imagery"
+    ],
+    "notSuitableFor": [
+      "text-only hero sections",
+      "light background heroes",
+      "minimal hero without images"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-03-13T14:59:00.000Z"
+  }
+}

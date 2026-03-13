@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-service",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-03-13T14:59:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.sjp.co.uk",
+    "originPage": "SJP homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "service-promotion",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + heading + description + link-list + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "service overview pages",
+      "feature highlight sections",
+      "cards with image, description, multiple links, and CTA"
+    ],
+    "notSuitableFor": [
+      "simple image+text cards",
+      "news/article cards with metadata",
+      "cards without images"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-03-13T14:59:00.000Z"
+  }
+}
