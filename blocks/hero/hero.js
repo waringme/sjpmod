@@ -26,9 +26,13 @@ export default function decorate(block) {
     block.classList.add('removeunderline');
   }
 
+  const isBandHero = block.classList.contains('image-background-text-left')
+    || block.classList.contains('image-background-text-right');
+  const effectiveCta = (ctaStyle === 'default' && isBandHero) ? 'button' : ctaStyle;
+
   block.querySelectorAll('p.button-container, p.button-wrapper').forEach((el) => {
     el.classList.add('button-container');
-    el.classList.add(`cta-${ctaStyle}`);
+    el.classList.add(`cta-${effectiveCta}`);
   });
 
   const ctaStyleParagraph = block.querySelector('p[data-aue-prop="ctastyle"]');

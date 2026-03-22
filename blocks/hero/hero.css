@@ -532,11 +532,45 @@
   border-color: var(--dark-color);
 }
 
+/*
+ * Text panel scrim — same as https://main--sjpa--waringme.aem.live/
+ * Homepage uses block "hero-wealth" (see hero-wealth.css .hero-wealth-overlay), not .hero.
+ */
 .hero.block.overlay div:nth-child(2),
 .hero.image-background-text-left div:nth-child(2),
 .hero.image-background-text-right div:nth-child(2) {
+  box-sizing: border-box;
   padding: 20px;
   background: rgb(0 0 0 / 50%);
+}
+
+/* Wider text panel on large screens (aligned with main--sjpa--waringme.aem.live) */
+@media (width >= 900px) {
+  .hero.image-background-text-left div:nth-child(2),
+  .hero.image-background-text-right div:nth-child(2) {
+    min-width: 40%;
+    max-width: min(600px, 44vw);
+  }
+}
+
+/* Teal CTA on image left/right heroes (live sjpa) */
+.hero.image-background-text-left .button-container.cta-button a.button,
+.hero.image-background-text-right .button-container.cta-button a.button {
+  background-color: #3fdcc8;
+  border: 2px solid #3fdcc8;
+  color: #fff;
+}
+
+.hero.image-background-text-left .button-container.cta-button a.button:hover,
+.hero.image-background-text-right .button-container.cta-button a.button:hover {
+  background-color: #2fc4b0 !important;
+  border-color: #2fc4b0 !important;
+  color: #fff !important;
+}
+
+.hero.image-background-text-left .button-container.cta-button a.button::after,
+.hero.image-background-text-right .button-container.cta-button a.button::after {
+  color: #fff;
 }
 
 /*button theme hero specific*/

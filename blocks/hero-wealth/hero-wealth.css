@@ -10,7 +10,9 @@
 
   position: relative;
   display: flex;
-  align-items: center;
+
+  /* stretch so the text panel can run full hero height (matches sjpa left band) */
+  align-items: stretch;
   justify-content: flex-start;
   min-height: 700px;
   padding: 60px 40px;
@@ -31,16 +33,32 @@
   object-position: left;
 }
 
-/* Same panel as .hero.image-background-text-left div:nth-child(2) on sjpa */
+/*
+ * Same scrim as .hero.image-background-text-left div:nth-child(2) on sjpa
+ * (homepage uses hero-wealth, not .hero — those selectors never hit here).
+ */
 .hero-wealth .hero-wealth-overlay {
   position: relative;
   z-index: 1;
   box-sizing: border-box;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
   max-width: 600px;
+  min-width: min(100%, 360px);
   margin: 0;
   padding: 20px;
   background: rgb(0 0 0 / 50%);
   text-align: left;
+}
+
+@media (width >= 900px) {
+  .hero-wealth .hero-wealth-overlay {
+    min-width: 40%;
+    max-width: min(600px, 44vw);
+  }
 }
 
 /* Match .hero h1 / .hero-h1-harder (sjpa hero.css) */
@@ -93,39 +111,37 @@
   margin-top: 30px;
 }
 
-/* Black primary CTA — same as .hero-wrapper .button-container.cta-button (sjpa) */
+/* Teal CTA — matches main--sjpa--waringme.aem.live hero (“Know More”) */
 .hero-wealth-wrapper .button-container.cta-button a.button {
-  background-color: #000;
-  border: 2px solid #000;
+  background-color: #3fdcc8;
+  border: 2px solid #3fdcc8;
   border-radius: 0;
-  color: var(--text-light);
+  color: #fff;
 }
 
 .hero-wealth-wrapper .button-container a.button:focus {
-  outline: 2px solid #000;
-  outline-offset: 2px;
+  outline: 2px solid #fff;
+  outline-offset: 3px;
 }
 
 .hero-wealth-wrapper .button-container.cta-button a.button::after {
   content: "\f105";
   font-family: 'Font Awesome 5 Solid', sans-serif;
-  font-size: 20px;
-  margin-left: 8px;
-  transition: all 0.3s ease;
+  font-size: 18px;
+  margin-left: 10px;
   color: #fff;
 }
 
 .hero-wealth-wrapper .button-container.cta-button a.button:hover {
-  background-color: rgb(255 255 255 / 10%) !important;
-  color: var(--text-light) !important;
-  border-color: var(--text-light) !important;
-  box-shadow: 0 4px 8px rgb(0 0 0 / 30%) !important;
-  transform: translateY(-1px);
+  background-color: #2fc4b0 !important;
+  border-color: #2fc4b0 !important;
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
 }
 
 .hero-wealth-wrapper .button-container.cta-button a.button:hover::after {
-  color: var(--text-light) !important;
-  transform: translateX(2px);
+  color: #fff !important;
+  transform: translateX(3px);
 }
 
 .hero-wealth.no-image {

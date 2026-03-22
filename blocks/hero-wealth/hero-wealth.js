@@ -37,6 +37,23 @@ export default function decorate(block) {
     p.classList.add('button-container', 'cta-button');
   });
 
+  /* Authoring often uses <div><a> for the CTA — wrap so teal .cta-button styles apply */
+  textOverlay.querySelectorAll(':scope div > a[href]').forEach((a) => {
+    const parent = a.parentElement;
+    if (!parent || parent.children.length !== 1 || a.closest('p.button-container')) return;
+    a.classList.add('button');
+    const p = document.createElement('p');
+    p.className = 'button-container cta-button';
+    parent.replaceWith(p);
+    p.append(a);
+  });
+
+  textOverlay.querySelectorAll(':scope p:not(.button-container):not(.button-wrapper) > a[href]:only-child').forEach((a) => {
+    if (a.closest('p.button-container')) return;
+    a.classList.add('button');
+    a.parentElement.classList.add('button-container', 'cta-button');
+  });
+
   block.textContent = '';
   block.append(imageContainer, textOverlay);
 }
