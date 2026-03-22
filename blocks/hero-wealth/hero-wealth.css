@@ -1,162 +1,197 @@
-/* hero-wealth: full-bleed hero with image and text overlay */
-.hero-wealth-container {
-  background-color: #0a1428;
-}
-
+/* hero-wealth: mirrors sjpa .hero.image-background-text-left (main--sjpa--waringme.aem.live) */
+/* stylelint-disable font-family-name-quotes, no-descending-specificity */
 .hero-wealth-container .hero-wealth-wrapper {
   max-width: unset;
   padding: 0;
 }
 
 .hero-wealth {
+  --text-light: #fff;
+
   position: relative;
-  min-height: 400px;
-  overflow: hidden;
   display: flex;
-  align-items: stretch;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 700px;
+  padding: 60px 40px;
+  overflow: hidden;
 }
 
-/* background image */
 .hero-wealth .hero-wealth-image {
   position: absolute;
-  inset: 0;
   z-index: 0;
+  inset: 0;
 }
 
 .hero-wealth .hero-wealth-image img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  object-position: left;
 }
 
-/* text overlay — full height, left-aligned */
+/* Same panel as .hero.image-background-text-left div:nth-child(2) on sjpa */
 .hero-wealth .hero-wealth-overlay {
   position: relative;
   z-index: 1;
-  background-color: rgb(10 20 40 / 70%);
-  padding: 24px;
-  text-align: center;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  box-sizing: border-box;
+  max-width: 600px;
+  margin: 0;
+  padding: 20px;
+  background: rgb(0 0 0 / 50%);
+  text-align: left;
 }
 
+/* Match .hero h1 / .hero-h1-harder (sjpa hero.css) */
 .hero-wealth .hero-wealth-overlay h1 {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 1;
-  color: #fff;
-  margin: 0 0 16px;
+  font-family: "NoeDisplaySJP-Bold", var(--heading-font-family), serif;
+  font-size: 44px;
+  line-height: 44px;
   letter-spacing: 0.16px;
+  font-weight: 400;
+  color: var(--text-light);
+  margin: 0 0 20px;
 }
 
-/* cursive accent word ("harder") */
-.hero-wealth .hero-wealth-overlay h1 .hero-wealth-accent {
+.hero-wealth .hero-wealth-overlay h1 .hero-h1-harder {
   display: block;
-  font-family: 'Brush Script MT', 'Segoe Script', cursive;
-  font-size: 2em;
+  margin-top: -0.35em;
+  font-family: "SJPSouthCoast", "South Coast", "Brush Script MT", cursive;
+  font-size: 72px;
+  line-height: 80px;
+  letter-spacing: 0.16px;
   font-weight: 400;
-  line-height: 0.75;
-  color: #3fdcc8;
-  margin-top: 4px;
+  color: #3fdcc8 !important;
+  -webkit-text-fill-color: #3fdcc8 !important;
+}
+
+.hero-wealth .hero-wealth-overlay h1::after {
+  background-color: var(--main-accent-color);
+  content: "";
+  display: block;
+  height: 5px;
+  margin: 20px 0 24px;
+  width: 128px;
+}
+
+.hero-wealth.removeunderline .hero-wealth-overlay h1::after {
+  display: none;
 }
 
 .hero-wealth .hero-wealth-overlay p {
-  font-size: 14px;
-  line-height: 1.5;
-  color: #fff;
-  margin: 0 0 16px;
+  margin: 0 0 20px;
+  width: 100%;
+  max-width: none;
+  color: var(--text-light);
+  text-align: left;
+  font-family: var(--body-font-family);
 }
 
-/* CTA button */
-.hero-wealth .hero-wealth-overlay a {
-  display: inline-flex;
-  align-items: center;
-  background-color: #3fdcc8;
-  color: #0a1428;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  letter-spacing: 0.25px;
-  padding: 10px 32px 10px 12px;
-  border: none;
+.hero-wealth .hero-wealth-overlay p.button-wrapper,
+.hero-wealth .hero-wealth-overlay p.button-container {
+  margin-top: 30px;
+}
+
+/* Black primary CTA — same as .hero-wrapper .button-container.cta-button (sjpa) */
+.hero-wealth-wrapper .button-container.cta-button a.button {
+  background-color: #000;
+  border: 2px solid #000;
   border-radius: 0;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.18s ease-in-out;
+  color: var(--text-light);
 }
 
-.hero-wealth .hero-wealth-overlay a:hover {
-  background-color: #2fc4b0;
-  color: #0a1428;
-  text-decoration: none;
+.hero-wealth-wrapper .button-container a.button:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
 }
 
-/* no-image fallback */
+.hero-wealth-wrapper .button-container.cta-button a.button::after {
+  content: "\f105";
+  font-family: 'Font Awesome 5 Solid', sans-serif;
+  font-size: 20px;
+  margin-left: 8px;
+  transition: all 0.3s ease;
+  color: #fff;
+}
+
+.hero-wealth-wrapper .button-container.cta-button a.button:hover {
+  background-color: rgb(255 255 255 / 10%) !important;
+  color: var(--text-light) !important;
+  border-color: var(--text-light) !important;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 30%) !important;
+  transform: translateY(-1px);
+}
+
+.hero-wealth-wrapper .button-container.cta-button a.button:hover::after {
+  color: var(--text-light) !important;
+  transform: translateX(2px);
+}
+
 .hero-wealth.no-image {
   min-height: auto;
-  background-color: #0a1428;
-  padding: 40px 24px;
+  background: var(--dark-color);
+  padding: 48px 24px;
 }
 
-.hero-wealth.no-image h1,
-.hero-wealth.no-image p {
-  color: #fff;
+.hero-wealth.no-image .hero-wealth-overlay {
+  background: transparent;
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
-/* tablet and up */
-@media (width >= 600px) {
-  .hero-wealth {
-    min-height: 500px;
-  }
-
-  .hero-wealth .hero-wealth-overlay {
-    width: 50%;
-    padding: 28px 36px;
-  }
-
-  .hero-wealth .hero-wealth-overlay h1 {
-    font-size: 52px;
-  }
-
-  .hero-wealth .hero-wealth-overlay p {
-    font-size: 16px;
-  }
-}
-
-/* desktop */
 @media (width >= 900px) {
   .hero-wealth {
-    min-height: 615px;
-  }
-
-  .hero-wealth .hero-wealth-overlay {
-    width: 560px;
-    max-width: 560px;
-    padding: 33px 46px;
+    padding: 40px 32px;
   }
 
   .hero-wealth .hero-wealth-overlay h1 {
     font-size: 72px;
     line-height: 72px;
-    margin: 0 0 25px;
   }
 
-  .hero-wealth .hero-wealth-overlay h1 .hero-wealth-accent {
-    font-size: 2em;
-    line-height: 0.7;
+  .hero-wealth .hero-wealth-overlay h1 .hero-h1-harder {
+    font-size: 144px;
+    line-height: 100px;
   }
 
+  .hero-wealth-wrapper a.button {
+    padding: 14px 28px;
+    font-size: 18px;
+  }
+}
+
+@media (width < 1024px) {
+  .hero-wealth {
+    min-height: 650px;
+    padding: 50px 30px;
+  }
+}
+
+@media (width < 768px) {
+  .hero-wealth {
+    min-height: 600px;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .hero-wealth .hero-wealth-overlay {
+    max-width: none;
+  }
+
+  .hero-wealth .hero-wealth-overlay h1,
+  .hero-wealth .hero-wealth-overlay h2,
+  .hero-wealth .hero-wealth-overlay h3,
   .hero-wealth .hero-wealth-overlay p {
-    font-size: 16px;
-    line-height: 24px;
-    margin: 0 0 24px;
+    text-align: center;
+  }
+
+  .hero-wealth .hero-wealth-overlay h1::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-wealth-wrapper .button-container {
+    text-align: center;
   }
 }

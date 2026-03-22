@@ -1,6 +1,9 @@
 footer {
-  background-color: var(--light-color);
+  background-color: var(--background-color);
+  border-top: 1px solid #000;
   font-size: var(--body-font-size-xs);
+  font-family: var(--light-font-family);
+  color: var(--text-color);
 }
 
 footer .footer > div {
@@ -13,8 +16,23 @@ footer .footer p {
   margin: 0;
 }
 
+footer .footer img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+footer .footer a:any-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+footer .footer a:hover {
+  color: var(--main-accent-color);
+}
+
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 50px 32px;
   }
 }

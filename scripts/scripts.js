@@ -13,6 +13,38 @@ import {
 } from './aem.js';
 
 /**
+ * Moves attributes from one element to another (used by moveInstrumentation).
+ * @param {Element} from
+ * @param {Element} to
+ * @param {string[]} [attributes]
+ */
+export function moveAttributes(from, to, attributes) {
+  const attrs = attributes ?? [...from.attributes].map(({ nodeName }) => nodeName);
+  attrs.forEach((attr) => {
+    const value = from.getAttribute(attr);
+    if (value) {
+      to.setAttribute(attr, value);
+      from.removeAttribute(attr);
+    }
+  });
+}
+
+/**
+ * Move authoring instrumentation attributes to rebuilt nodes (RTE / aue).
+ * @param {Element} from
+ * @param {Element} to
+ */
+export function moveInstrumentation(from, to) {
+  moveAttributes(
+    from,
+    to,
+    [...from.attributes]
+      .map(({ nodeName }) => nodeName)
+      .filter((attr) => attr.startsWith('data-aue-') || attr.startsWith('data-richtext-')),
+  );
+}
+
+/**
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
  */

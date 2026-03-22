@@ -1,3 +1,7 @@
+/**
+ * Full-bleed hero with left text overlay (matches sjpa image-background-text-left hero).
+ * @param {Element} block
+ */
 export default function decorate(block) {
   const rows = [...block.children];
   if (rows.length < 2) return;
@@ -5,41 +9,34 @@ export default function decorate(block) {
   const imageRow = rows[0];
   const textRow = rows[1];
 
-  // Find the image (could be in <picture> or <p><img>)
   const img = imageRow.querySelector('img');
   if (!img) {
     block.classList.add('no-image');
     return;
   }
 
-  // Create image container for background
   const imageContainer = document.createElement('div');
   imageContainer.classList.add('hero-wealth-image');
   img.loading = 'eager';
   imageContainer.append(img);
 
-  // Create text overlay
   const textOverlay = document.createElement('div');
   textOverlay.classList.add('hero-wealth-overlay');
 
-  // Move text content into overlay
   [...textRow.children].forEach((col) => {
     textOverlay.append(...col.children);
   });
 
-  // Style the last word of h1 as cursive accent
   const h1 = textOverlay.querySelector('h1');
-  if (h1) {
-    const text = h1.textContent.trim();
-    const lastSpace = text.lastIndexOf(' ');
-    if (lastSpace > 0) {
-      const mainText = text.substring(0, lastSpace);
-      const accentWord = text.substring(lastSpace + 1);
-      h1.innerHTML = `${mainText} <span class="hero-wealth-accent">${accentWord}</span>`;
-    }
+  if (h1 && h1.textContent && /\bharder\b/i.test(h1.textContent) && !h1.querySelector('.hero-h1-harder')) {
+    const raw = h1.innerHTML || h1.textContent;
+    h1.innerHTML = raw.replace(/\b(harder)\b/gi, '<span class="hero-h1-harder">$1</span>');
   }
 
-  // Replace block contents
+  textOverlay.querySelectorAll('p.button-wrapper').forEach((p) => {
+    p.classList.add('button-container', 'cta-button');
+  });
+
   block.textContent = '';
   block.append(imageContainer, textOverlay);
 }
