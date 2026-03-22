@@ -187,3 +187,11 @@ async function loadPage() {
 }
 
 loadPage();
+
+// Document Authoring live preview: https://docs.da.live/authors/reference/live-preview
+(async function loadDa() {
+  if (!new URL(window.location.href).searchParams.get('dapreview')) return;
+  // Remote DA preview script; eslint-plugin-import cannot resolve HTTPS URLs.
+  // eslint-disable-next-line import/no-unresolved
+  import('https://da.live/scripts/dapreview.js').then(({ default: daPreview }) => daPreview(loadPage));
+}());
