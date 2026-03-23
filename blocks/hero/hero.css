@@ -9,10 +9,19 @@
   padding: 0;
 }
 
+main > .section.hero-container > div:has(> .hero-wrapper) {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .hero {
   --brand-light-text-color: #ffffff;
   --text-light: #ffffff;
   position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
   padding: 40px 24px;
   min-height: 700px;
   display: flex;
@@ -45,6 +54,7 @@
   line-height: 44px;
   letter-spacing: 0.16px;
   font-weight: 400;
+  overflow-wrap: break-word;
 }
 
 /* SJP-style "harder" subhead: cursive, teal, larger, overlaps line above (matches sjp.co.uk hmBnrSubHead) */
@@ -395,7 +405,21 @@
 }
 
 @media (width < 768px) {
-  .hero { min-height: 600px; }
+  .hero {
+    min-height: min(600px, 90dvh);
+  }
+
+  .hero.image-background-text-left > div,
+  .hero.image-background-text-right > div {
+    min-width: 0;
+  }
+
+  .hero h1 .hero-h1-harder,
+  .hero p .hero-h1-harder,
+  .hero .hero-h1-harder {
+    font-size: clamp(2.5rem, 14vw, 4.5rem);
+    line-height: 1.08;
+  }
 
   .hero.image-left,
   .hero.image-right {
